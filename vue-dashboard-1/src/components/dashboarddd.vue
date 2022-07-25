@@ -12,13 +12,7 @@
         <div id="div4">
             <slot name="slot4"></slot>
         </div>
-        <div id="div5">
-            <slot name="slot5"></slot>
-        </div>
-        <div id="div6">
-            <slot name="slot6"></slot>
-        </div>
-
+      
        
     </div>
 </template>
