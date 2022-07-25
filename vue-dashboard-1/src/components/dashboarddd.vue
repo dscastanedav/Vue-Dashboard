@@ -1,5 +1,5 @@
 <template>
-    <div class="flex border border-transparent border-b-slate-300 items-center -mt-12 shadow-md">
+    <div class="flex border borde-slate-300 items-center m-10 p-8 shadow-md">
         <div id="div1">
             <slot name="slot1"></slot>
         </div>
@@ -18,28 +18,17 @@
         <div id="div6">
             <slot name="slot6"></slot>
         </div>
-        <div id="div7">
-            <slot name="slot7"></slot>
-        </div>
-        <div id="div8">
-            <slot name="slot8"></slot>
-        </div>
-        <div id="div9">
-            <slot name="slot9"></slot>
-        </div>
+
+       
     </div>
-    
 </template>
 
 <script>
     export default {
-        name: "my-header"
+        name: 'my-dashboard'  
     }
 </script>
 
 <style scoped>
-  
-
-    
 
 </style>
