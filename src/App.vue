@@ -149,11 +149,11 @@
                 <div class="flex flex-row">
                   <div class="flex flex-col">
                     <label for="cantidad" class="">Cantidad</label>
-                    <input type="text" v-model="formValues.cantidad" id="cantidad" class="border rounded border-slate-300 h-15 text-slate-400 mr-2 my-0.5  gap-4">
+                    <input type="text" v-model="formValues.cantidad" id="cantidad" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4">
                   </div>
                   <div class="flex flex-col">
                     <label for="sku" class="">SKU</label>
-                    <input type="text" v-model="formValues.sku" id="sku" class="border rounded border-slate-300 h-15 text-slate-400 mr-2 my-0.5  gap-4">
+                    <input type="text" v-model="formValues.sku" id="sku" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4">
                   </div>
                 </div>
 
@@ -169,14 +169,62 @@
                   </div>
                   <div class="flex flex-col">
                     <label for="precio" class="">Precio</label>
-                    <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15  text-slate-400 mr-2 my-0.5  gap-4">
+                    <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15  mr-2 my-0.5  gap-4">
                   </div>
                 </div>
                 <br>
                 <h2 class="text-lg	font-semibold">Precio y disponibilidad</h2>
-                
 
+                <div class="flex flex-row">
+                  
 
+                  <div class="flex flex-col">
+                    <h2 class="semibold">Peso</h2>
+                    <div class="flex flex-row">
+                      <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4">
+                      <h2 class="mx-1">Grs</h2>
+                    </div>
+                    
+                  </div>
+
+                  <div class="flex flex-col">
+                    <h2 class="semibold">Alto</h2>
+                    <div class="flex flex-row">
+                       <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4">
+                    <h2 class="mx-1">cm</h2>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col">
+                     <h2 class="semibold">Ancho</h2>
+                     <div class="flex flex-row">
+                      <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4">
+                    <h2 class="mx-1">cm</h2>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col">
+                    <h2 class="semibold">Profundo</h2>
+                    <div class="flex flex-row">
+                      <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4">
+                     <h2 class="mx-1">cm</h2>  
+                    </div>
+                  </div>
+                  <br>
+                </div>
+                <br>
+                 <h2 class="text-lg	font-semibold">Fotos del producto</h2>
+                  <h2 class="ml-10"> <b>Importante: </b>Las imagenes son el componente mas importante de <br>
+                  un buen e-commerce. Por favor cargue imagenes de buena calidad <br>y tamaño. Le recomendamos usar estandares de 
+                  proporcion 4:3 y <br>color de fondo unificado
+                  </h2>  
+                  <br>
+                  <label for="avatar">Escoja una imagen: </label>
+
+               <input type="file"
+               id="avatar" name="avatar"
+                accept="image/png, image/jpeg">
+                  
 
                 </form><!--FIN FORM-->
 
