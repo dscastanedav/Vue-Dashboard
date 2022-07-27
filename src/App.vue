@@ -65,6 +65,15 @@
         <img class="bg-white-500 mt-6 ml-12 w-128 h-4  col-span-1" src="./assets/DashboardImages/Trazado1232.png">
 
 
+
+
+<!-- para texto
+        required size="10"
+           placeholder="Username"
+           minlength="4" maxlength="8" -->
+
+           <!-- step="10" min="0" max="100" -->
+
         <!--Aqui va el popup-->     <!--POPUP-->     <!--POPUP-->       <!--POPUP-->
 
 
@@ -78,7 +87,7 @@
                 <h2 class="text-lg	font-semibold">Informacion del producto</h2>
                 <br>
 
-                <form>   <!--INICIO FORM-->
+                <form @submit="submitForm">   <!--INICIO FORM-->
                 <div class="flex flex-col">
                   <label for="descripcion" class="">Descripcion</label>
                   <select id="categoria" class="border rounded border-slate-300 h-15 text-slate-400">
@@ -92,17 +101,17 @@
                 <br>
                 <div class="flex flex-col">
                   <label for="titulo" class="">Titulo</label>
-                  <input type="text" id="titulo" class="border rounded border-slate-300 h-15" v-model="formValues.titulo">
+                  <input type="text" id="titulo" class="border rounded border-slate-300 h-15" v-model="formValues.titulo" required maxlength="40">
                 </div>
                 <br>
                 <div class="flex flex-col">
                   <label for="descripcion" class="">Descripcion</label>
-                  <input type="text" id="descripcion" class="border rounded border-slate-300 h-15" v-model="formValues.descripcion">
+                  <input type="text" id="descripcion" class="border rounded border-slate-300 h-15" v-model="formValues.descripcion" maxlength="100">
                 </div>
                 <br>
                 <div class="flex flex-col">
                   <label for="descripcionPro" class="">Descripcion pro</label>
-                  <textarea type="text" id="descripcionPro" class="border rounded border-slate-300 h-15" v-model="formValues.descripcionPro"></textarea>
+                  <textarea type="text" id="descripcionPro" class="border rounded border-slate-300 h-15" v-model="formValues.descripcionPro" maxlength="1000"></textarea>
                 </div>
                 <br>
                 <h2>Variantes</h2>      <!--VARIANTES SELECTORES-->
@@ -149,18 +158,20 @@
                 <div class="flex flex-row">
                   <div class="flex flex-col">
                     <label for="cantidad" class="">Cantidad</label>
-                    <input type="text" v-model="formValues.cantidad" id="cantidad" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4">
+                    <input type="text" v-model="formValues.cantidad" id="cantidad" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4" 
+                    required step="1" min="0" max="1000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                   </div>
                   <div class="flex flex-col">
                     <label for="sku" class="">SKU</label>
-                    <input type="text" v-model="formValues.sku" id="sku" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4">
+                    <input type="text" v-model="formValues.sku" id="sku" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4" 
+                    required maxlength="20" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                   </div>
                 </div>
 
                 <div class="flex flex-row">
                   <div class="flex flex-col">
                     <label for="moneda" class="">Moneda</label>
-                    <select id="moneda" v-model="formValues.moneda" class="border rounded border-slate-300 h-19 text-slate-400 mr-9 my-0.5  "><!--como espaciar flex items y que funcione-->
+                    <select id="moneda" v-model="formValues.moneda" class="border rounded border-slate-300 h-19 text-slate-400 mr-9 my-0.5 " ><!--como espaciar flex items y que funcione-->
                     <option value="">Seleccione moneda</option>
                     <option value="peso">Pesos Colombianos</option>
                     <option value="dolar">Dolares</option>
@@ -169,7 +180,8 @@
                   </div>
                   <div class="flex flex-col">
                     <label for="precio" class="">Precio</label>
-                    <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15  mr-2 my-0.5  gap-4">
+                    <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15  mr-2 my-0.5  gap-4" 
+                    required step="50" min="0" max="1000000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                   </div>
                 </div>
                 <br>
@@ -181,7 +193,8 @@
                   <div class="flex flex-col">
                     <h2 class="semibold">Peso</h2>
                     <div class="flex flex-row">
-                      <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4">
+                      <input type="text" v-model="formValues.peso" id="peso" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
+                      required step="1" min="0" max="10000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                       <h2 class="mx-1">Grs</h2>
                     </div>
                     
@@ -190,7 +203,8 @@
                   <div class="flex flex-col">
                     <h2 class="semibold">Alto</h2>
                     <div class="flex flex-row">
-                       <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4">
+                       <input type="text" v-model="formValues.alto" id="alto" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
+                       step="10" min="0" max="1000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                     <h2 class="mx-1">cm</h2>
                     </div>
                   </div>
@@ -198,7 +212,8 @@
                   <div class="flex flex-col">
                      <h2 class="semibold">Ancho</h2>
                      <div class="flex flex-row">
-                      <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4">
+                      <input type="text" v-model="formValues.ancho" id="ancho" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
+                      required step="10" min="0" max="1000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                     <h2 class="mx-1">cm</h2>
                     </div>
                   </div>
@@ -206,7 +221,8 @@
                   <div class="flex flex-col">
                     <h2 class="semibold">Profundo</h2>
                     <div class="flex flex-row">
-                      <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4">
+                      <input type="text" v-model="formValues.profundo" id="profundo" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
+                      required step="10" min="0" max="1000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                      <h2 class="mx-1">cm</h2>  
                     </div>
                   </div>
@@ -221,9 +237,12 @@
                   <br>
                   <label for="avatar">Escoja una imagen: </label>
 
-               <input type="file"
-               id="avatar" name="avatar"
-                accept="image/png, image/jpeg">
+                <div class="grid grid-cols-2 items-left">
+                  <input type="file"
+                    id="avatar" name="avatar"
+                    accept="image/png, image/jpeg">
+                  <button class="font-semibold border rounded border-slate-300 p-2 bg-sky-500 w-20 text-white" >Submit</button>
+                </div>
                   
 
                 </form><!--FIN FORM-->
@@ -231,6 +250,11 @@
               </div>
             </popup>
           <!-- </teleport> -->
+
+
+
+
+
 
 
 
@@ -314,6 +338,8 @@ export default {
   data() {
     return {
       //showModal: false,
+      //todas las variables son dinamicas por lo que hay riesgo de informacion enrronea en los formularios
+      //por esta razon se usa el tipado, asi se podrian inicializar como constantes vacias de un tipo de dato especifico
       fechas:'',
       formValues:{
         titulo:'',
@@ -325,14 +351,24 @@ export default {
         sabor:'',
         precio:'' ,
         moneda:'' ,
-        cantida:'' ,
+        cantidad:'' ,
         sku:'' ,
+        peso:'',
+        alto:'',
+        ancho:'',
+        profundo:'',
       }
     };
   },
   setup(){
     const isOpen = ref(false)
     return {isOpen}
+  },
+  methods:{
+    submitForm(){
+      event.preventDefault()
+      console.log('Form values', this.formValues)
+    }
   }
 }
 </script>
