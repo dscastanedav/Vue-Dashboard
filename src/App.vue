@@ -87,10 +87,10 @@
                 <h2 class="text-lg	font-semibold">Informacion del producto</h2>
                 <br>
 
-                <form @submit="submitForm">   <!--INICIO FORM-->
+                <form @submit="submitForm">   <!--INICIO FORM--> 
                 <div class="flex flex-col">
-                  <label for="descripcion" class="">Descripcion</label>
-                  <select id="categoria" class="border rounded border-slate-300 h-15 text-slate-400">
+                  <label for="categoria" class="">Categoria</label>
+                  <select id="categoria" v-model="formValues.categoria" class="border rounded border-slate-300 h-15 text-slate-400">
                     <option value="">Seleccione una categoria</option>
                     <option value="alimentos">Alimentos</option>
                     <option value="tecnologia">Tecnologia</option>
@@ -101,17 +101,17 @@
                 <br>
                 <div class="flex flex-col">
                   <label for="titulo" class="">Titulo</label>
-                  <input type="text" id="titulo" class="border rounded border-slate-300 h-15" v-model="formValues.titulo" required maxlength="40">
+                  <input type="text" id="titulo" class="border rounded border-slate-300 h-15" v-model.trim="formValues.titulo" required maxlength="40">
                 </div>
                 <br>
                 <div class="flex flex-col">
                   <label for="descripcion" class="">Descripcion</label>
-                  <input type="text" id="descripcion" class="border rounded border-slate-300 h-15" v-model="formValues.descripcion" maxlength="100">
+                  <input type="text" id="descripcion" class="border rounded border-slate-300 h-15" v-model.trim="formValues.descripcion" maxlength="100">
                 </div>
                 <br>
                 <div class="flex flex-col">
                   <label for="descripcionPro" class="">Descripcion pro</label>
-                  <textarea type="text" id="descripcionPro" class="border rounded border-slate-300 h-15" v-model="formValues.descripcionPro" maxlength="1000"></textarea>
+                  <textarea type="text" id="descripcionPro" class="border rounded border-slate-300 h-15" v-model.trim="formValues.descripcionPro" maxlength="1000"></textarea>
                 </div>
                 <br>
                 <h2>Variantes</h2>      <!--VARIANTES SELECTORES-->
@@ -158,12 +158,12 @@
                 <div class="flex flex-row">
                   <div class="flex flex-col">
                     <label for="cantidad" class="">Cantidad</label>
-                    <input type="text" v-model="formValues.cantidad" id="cantidad" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4" 
+                    <input type="text" v-model.trim="formValues.cantidad" id="cantidad" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4" 
                     required step="1" min="0" max="1000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                   </div>
                   <div class="flex flex-col">
                     <label for="sku" class="">SKU</label>
-                    <input type="text" v-model="formValues.sku" id="sku" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4" 
+                    <input type="text" v-model.trim="formValues.sku" id="sku" class="border rounded border-slate-300 h-15 mr-2 my-0.5  gap-4" 
                     required maxlength="20" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                   </div>
                 </div>
@@ -180,7 +180,7 @@
                   </div>
                   <div class="flex flex-col">
                     <label for="precio" class="">Precio</label>
-                    <input type="text" v-model="formValues.precio" id="precio" class="border rounded border-slate-300 h-15  mr-2 my-0.5  gap-4" 
+                    <input type="text" v-model.trim="formValues.precio" id="precio" class="border rounded border-slate-300 h-15  mr-2 my-0.5  gap-4" 
                     required step="50" min="0" max="1000000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                   </div>
                 </div>
@@ -193,7 +193,7 @@
                   <div class="flex flex-col">
                     <h2 class="semibold">Peso</h2>
                     <div class="flex flex-row">
-                      <input type="text" v-model="formValues.peso" id="peso" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
+                      <input type="text" v-model.trim="formValues.peso" id="peso" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
                       required step="1" min="0" max="10000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                       <h2 class="mx-1">Grs</h2>
                     </div>
@@ -203,7 +203,7 @@
                   <div class="flex flex-col">
                     <h2 class="semibold">Alto</h2>
                     <div class="flex flex-row">
-                       <input type="text" v-model="formValues.alto" id="alto" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
+                       <input type="text" v-model.trim="formValues.alto" id="alto" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
                        step="10" min="0" max="1000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                     <h2 class="mx-1">cm</h2>
                     </div>
@@ -212,7 +212,7 @@
                   <div class="flex flex-col">
                      <h2 class="semibold">Ancho</h2>
                      <div class="flex flex-row">
-                      <input type="text" v-model="formValues.ancho" id="ancho" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
+                      <input type="text" v-model.trim="formValues.ancho" id="ancho" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
                       required step="10" min="0" max="1000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                     <h2 class="mx-1">cm</h2>
                     </div>
@@ -221,7 +221,7 @@
                   <div class="flex flex-col">
                     <h2 class="semibold">Profundo</h2>
                     <div class="flex flex-row">
-                      <input type="text" v-model="formValues.profundo" id="profundo" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
+                      <input type="text" v-model.trim="formValues.profundo" id="profundo" class="border rounded border-slate-300 h-15 my-0.5 mr-2 gap-4" 
                       required step="10" min="0" max="1000000" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
                      <h2 class="mx-1">cm</h2>  
                     </div>
@@ -242,9 +242,9 @@
                     id="avatar" name="avatar"
                     accept="image/png, image/jpeg">
                   <button class="font-semibold border rounded border-slate-300 p-2 bg-sky-500 w-20 text-white"
-                  @click="demoVisibility(), changeNumericProgress(), changeProgressBar(), cleanForm()" >Submit</button>
+                  @click="demoVisibility(), changeNumericProgress(), changeProgressBar()" >Submit</button>
                 </div>
-                  
+                  <!--cleanForm() No se pudo utilizar, limpia el formulario antes de hacer las validaciones o de enviarlo-->
 
                 </form><!--FIN FORM-->
 
@@ -370,8 +370,8 @@ export default {
     return {isOpen}
   },
   methods:{
-    submitForm(){
-      event.preventDefault()
+    submitForm(event){ //event como metodo y quitar el sumbit.prevent
+      event.preventDefault(); //no sirvio el modifier, se reinicia el formulario con cada submit fallido
       console.log('Form values', this.formValues)
     },
     demoVisibility() {
@@ -383,7 +383,7 @@ export default {
     changeProgressBar() {
       document.getElementById("progressBar").style.width = '42%';
     },
-    cleanForm(){
+    async cleanForm(){
         this.formValues.titulo='',
         this.formValues.descripcion='',
         this.formValues.descripcionPro='',
